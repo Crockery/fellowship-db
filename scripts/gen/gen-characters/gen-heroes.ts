@@ -1,9 +1,7 @@
-import { getDirectoryContents } from "../shared/utils";
+import { getOutputContents } from "../shared/utils";
 
 export const genHeroes = async () => {
-  const heroContents = await getDirectoryContents(
-    "./data/raw/characters/Heroes"
-  );
+  const heroContents = await getOutputContents("Content\\characters\\Heroes");
 
   console.log(heroContents);
 

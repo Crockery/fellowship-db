@@ -10,7 +10,9 @@ try {
 }
 
 const gen = () => {
-  console.log(process.env.FMODEL_OUTPUT);
+  if (!process.env.FMODEL_OUTPUT) {
+    throw new Error("FMODEL_OUTPUT path not set in .env");
+  }
 
   const type = argv[2];
 

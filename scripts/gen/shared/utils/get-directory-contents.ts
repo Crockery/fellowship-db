@@ -10,20 +10,28 @@ interface DirectoryContents {
   directories: DirectoryContents[];
 }
 
-export const getDirectoryContents = async (
+export const getOutputContents = async (
   path: string
 ): Promise<DirectoryContents | null> => {
   try {
-    const paths = await fs.readdir(path, { withFileTypes: true });
+    const root = process.env.FMODEL_OUTPUT;
+
+    if (!root) {
+      throw new Error("FMODEL_OUTPUT path not set in .env");
+    }
+
+    const paths = await fs.readdir(`${root}\\${path}`, { withFileTypes: true });
 
     const files = paths.filter((path) => path.isFile());
     const dirents = paths
       .filter((path) => path.isDirectory())
-      .map((dirent) => `${dirent.parentPath}\\${dirent.name}`);
+      .map(
+        (dirent) => `${dirent.parentPath.replace(root, "")}\\${dirent.name}`
+      );
 
     const directories = (
       await Promise.all(
-        dirents.map((direntPath) => getDirectoryContents(direntPath))
+        dirents.map((direntPath) => getOutputContents(direntPath))
       )
     ).filter((resp): resp is DirectoryContents => !!resp);
 
