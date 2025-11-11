@@ -25,9 +25,13 @@ export const getOutputContents = async (
     const files = paths.filter((path) => path.isFile());
     const dirents = paths
       .filter((path) => path.isDirectory())
-      .map(
-        (dirent) => `${dirent.parentPath.replace(root, "")}\\${dirent.name}`
-      );
+      .map((dirent) => {
+        const parentWithoutRoot = dirent.parentPath
+          .replace(root, "")
+          .replace(/^\\+/, "");
+
+        return `${parentWithoutRoot}\\${dirent.name}`;
+      });
 
     const directories = (
       await Promise.all(
