@@ -1,0 +1,27 @@
+{
+  "class_color": {
+    "R": 111,
+    "G": 46,
+    "B": 241,
+    "A": 255,
+    "hex": "#6F2EF1"
+  },
+  "name": {
+    "key": "04CCDB6C431FAB1E3B51B2B93EADF27A",
+    "default": "Mara"
+  },
+  "title": {
+    "key": "52D0F80A4AAF544622F3B1A88EA2DBF4",
+    "default": "The Hungering Blade"
+  },
+  "description": {
+    "key": "DC2E11714B6DE71E532D2491CA77F269",
+    "default": "Mara weaves in and out of the shadows to strike down her enemy.\r\n\r\nMara is a Melee Damage Dealer who utilizes abilities to build combo points that she spends on powerful finishing moves that make quick work of foes. \r\n\r\nAs an assassin, Mara also has access to a variety of poisons that, when used strategically, give her an upper hand in battle."
+  },
+  "biography": {
+    "key": "ED61578B4F4D1005CBD010A1EC929B9A",
+    "default": "Hunted across continents, Mara hides from unseen pursuers who manipulate life and death from the shadows.\r\n\r\nShe joins the Fellowship seeking refuge and vengeance, under a new identity, against those who pull the strings of fate."
+  },
+  "difficulty": 3,
+  "id": "CharacterID.Hero.Mara"
+}

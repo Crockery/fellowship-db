@@ -10,7 +10,7 @@ const copyLocaleJson = async (key: string, root: string, dest: string) => {
 
     await fs.writeFile(
       `${dest}\\${key}\\${key}.json`,
-      JSON.stringify(actual_json, null, 4)
+      JSON.stringify(actual_json, null, 2)
     );
   }
 };

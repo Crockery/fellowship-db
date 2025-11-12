@@ -1,0 +1,27 @@
+{
+  "class_color": {
+    "R": 137,
+    "G": 255,
+    "B": 0,
+    "A": 255,
+    "hex": "#89FF00"
+  },
+  "name": {
+    "key": "ADCD24044D572984A7894487022E30B6",
+    "default": "Elarion"
+  },
+  "title": {
+    "key": "4AC02F244CC10CFDA70D2081ABEB3736",
+    "default": "The Skystrider"
+  },
+  "description": {
+    "key": "5B977E8F4089D531E062AB83F16AFB5D",
+    "default": "The Skystrider moves about the battlefield with the grace of a trained marksman.\r\n\r\nElarion is a Ranged Damage Dealer that builds and spends Focus to perform powerful abilities.\r\n\r\nAs an mythic bowman, Elarion has access to powerful buffs and debuffs that empower his shots and manipulate the battlefield."
+  },
+  "biography": {
+    "key": "1D4C959D4F2EDBC9285435917EE8A2E9",
+    "default": "A sentinel of starlight, Elarion Beau'ghai has walked the world for millenia as the surviving half of an ancient myth that shaped the world.\r\n\r\nHe joins the Fellowship to watch over those who might one day fall to the same corrupting power he is fated to stop."
+  },
+  "difficulty": 2,
+  "id": "CharacterID.Hero.Bowguy"
+}

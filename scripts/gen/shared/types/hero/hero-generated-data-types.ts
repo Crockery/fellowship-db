@@ -1,3 +1,5 @@
+import { Translateable } from "../shared";
+
 export interface HeroMetaData {
   class_color: {
     R: number;
@@ -5,12 +7,16 @@ export interface HeroMetaData {
     B: number;
     A: number;
     hex: string;
-    rgba: string;
-    rgb: string;
   };
-  name: string;
-  title: string;
-  description: string;
-  biography: string;
+  name: Translateable;
+  title: Translateable;
+  description: Translateable;
+  biography: Translateable;
   difficulty: number;
 }
+
+export interface HeroData {
+  id: string;
+}
+
+export type Hero = HeroData & HeroMetaData;

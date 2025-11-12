@@ -1,8 +1,14 @@
-import { HeroMetaDataRaw } from "../shared/types";
-import { HeroMetaData } from "../shared/types/hero/hero-generated-data-types";
+import {
+  HeroMetaDataRaw,
+  HeroMetaData,
+  HeroData,
+  HeroDataRaw,
+  Hero,
+} from "../shared/types";
 import fs from "fs-extra";
+import { FellowshipBlueprint } from "../shared/types/shared";
 
-const genHeroMetaData = async (
+const getHeroMetaData = async (
   meta_data_path: string
 ): Promise<HeroMetaData | null> => {
   try {
@@ -26,13 +32,23 @@ const genHeroMetaData = async (
         B,
         A,
         hex: `#${hero_info_raw.Properties.ClassColor.Hex}`,
-        rgba: `rgba(${R}, ${G}, ${B}, ${A})`,
-        rgb: `rgb(${R}, ${G}, ${B}, ${A})`,
       },
-      name: hero_info_raw.Properties.HeroName.Key,
-      title: hero_info_raw.Properties.HeroTitle.Key,
-      description: hero_info_raw.Properties.HeroDescription.Key,
-      biography: hero_info_raw.Properties.Biography.Key,
+      name: {
+        key: hero_info_raw.Properties.HeroName.Key,
+        default: hero_info_raw.Properties.HeroName.SourceString,
+      },
+      title: {
+        key: hero_info_raw.Properties.HeroTitle.Key,
+        default: hero_info_raw.Properties.HeroTitle.SourceString,
+      },
+      description: {
+        key: hero_info_raw.Properties.HeroDescription.Key,
+        default: hero_info_raw.Properties.HeroDescription.SourceString,
+      },
+      biography: {
+        key: hero_info_raw.Properties.Biography.Key,
+        default: hero_info_raw.Properties.Biography.SourceString,
+      },
       difficulty: hero_info_raw.Properties.OverallDifficulty,
     };
   } catch (error) {
@@ -41,29 +57,49 @@ const genHeroMetaData = async (
   }
 };
 
-const getHeroData = async (data_path: string) => {
-  const json: HeroMetaDataRaw[] = await fs.readJson(data_path);
+const getHeroData = async (data_path: string): Promise<HeroData | null> => {
+  const json: FellowshipBlueprint[] = await fs.readJson(data_path);
+
+  const hero_data = json.find((block) => {
+    return !!block["Properties"]?.HeroID;
+  });
+
+  if (hero_data) {
+    return {
+      id: (hero_data as HeroDataRaw).Properties.HeroID.TagName,
+    };
+  }
+
+  return null;
 };
 
-const getHeroDirectoryKeys = async () => {
-  const paths = await fs.readdir(
+interface HeroDataPath {
+  data_file: string;
+  metadata_file: string;
+  hero_key: string;
+}
+
+export const genHeroes = async () => {
+  console.group();
+  console.log("Generating hero data.");
+
+  // Step 1. Get the directory names within the hero directory
+  const hero_paths_all = await fs.readdir(
     `${process.env.FMODEL_OUTPUT}\\Content\\characters\\Heroes`,
     { withFileTypes: true }
   );
 
-  return paths
+  const hero_keys = hero_paths_all
     .filter((path) => path.isDirectory())
     .map((dirent) => dirent.name);
-};
 
-const getHeroDataPaths = async (hero_keys: string[]) => {
-  const hero_data_paths: {
-    data_file: string;
-    metadata_file: string;
-    hero_key: string;
-  }[] = [];
+  // Step 2. Using the keys, traverse the hero directory and
+  // find which directories have a data, and meta-data file
+  // for use to parse.
+  const hero_paths: HeroDataPath[] = [];
 
   const getDataPaths = async (hero_key: string) => {
+    // Get the files in the hero's directory.
     const paths = await fs.readdir(
       `${process.env.FMODEL_OUTPUT}\\Content\\characters\\Heroes\\${hero_key}`,
       { withFileTypes: true }
@@ -71,17 +107,23 @@ const getHeroDataPaths = async (hero_keys: string[]) => {
 
     const files = paths.filter((dirent) => dirent.isFile());
 
+    // Find the "data" file for that hero.
     const data_file = files.find((dirent) =>
       dirent.name.startsWith(`BP_Hero_${hero_key}.json`)
     );
+
+    // Find the "meta_data file for that hero. Seems like this can"
+    // be named with or without a "_" before "MetaData"
     const metadata_file = files.find(
       (dirent) =>
         dirent.name.startsWith(`DA_${hero_key}MetaData.json`) ||
         dirent.name.startsWith(`DA_${hero_key}_MetaData.json`)
     );
 
+    // Only add the hero if they have both a data, and metadata
+    // path.
     if (data_file && metadata_file) {
-      hero_data_paths.push({
+      hero_paths.push({
         data_file: `${data_file.parentPath}\\${data_file.name}`,
         metadata_file: `${metadata_file.parentPath}\\${metadata_file.name}`,
         hero_key,
@@ -91,26 +133,28 @@ const getHeroDataPaths = async (hero_keys: string[]) => {
 
   await Promise.all(hero_keys.map((key) => getDataPaths(key)));
 
-  return hero_data_paths;
-};
-
-export const genHeroes = async () => {
-  console.group();
-  console.log("Generating hero data.");
-
-  const hero_keys = await getHeroDirectoryKeys();
-
-  const hero_paths = await getHeroDataPaths(hero_keys);
-
-  const genHero = async (
-    hero: Awaited<ReturnType<typeof getHeroDataPaths>>[number]
-  ) => {
-    const meta_data = await genHeroMetaData(hero.metadata_file);
-  };
-
   console.log(
     `${hero_paths.length} valid heroes found: ${hero_paths.map((hero) => hero.hero_key).join(", ")}`
   );
+
+  // Step 3. Using the data, and metadata files, convert
+  // the JSON in them to usable hero info JSON, then
+  // save that to the data directory.
+  const genHero = async (hero: HeroDataPath) => {
+    const meta_data = await getHeroMetaData(hero.metadata_file);
+    const data = await getHeroData(hero.data_file);
+
+    if (!!meta_data && !!data) {
+      const data_full: Hero = { ...meta_data, ...data };
+
+      await fs.writeFile(
+        `.\\data\\heroes\\${data_full.name.default}.json`,
+        JSON.stringify(data_full, null, 2)
+      );
+    }
+  };
+
+  await fs.ensureDir(".\\data\\heroes");
 
   await Promise.all(hero_paths.map((hero_path) => genHero(hero_path)));
 

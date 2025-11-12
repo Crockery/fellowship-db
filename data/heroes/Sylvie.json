@@ -1,0 +1,27 @@
+{
+  "class_color": {
+    "R": 234,
+    "G": 79,
+    "B": 132,
+    "A": 255,
+    "hex": "#EA4F84"
+  },
+  "name": {
+    "key": "E0CF1169469B16621C48E3A819E61667",
+    "default": "Sylvie"
+  },
+  "title": {
+    "key": "05ED62E745B745321C6806A5B84DF699",
+    "default": "The Daughter of the Forest"
+  },
+  "description": {
+    "key": "46A8A058428C2AC7BD2D1F8F98E00CD9",
+    "default": "Sylvie is a healer who uses her innate connection to nature and its many friends to heal her allies and harm her foes.\r\n\r\nSylvie is a Healer that uses Pet Management Mechanics. She excels at sending her pets to heal her allies over time and attack her enemies.\r\n\r\nShe commands her Flutterflies and Plants to heal allies and attack enemies.\r\n\r\nHer powerful Heal over Time spells allow her to prepare for battle and endure long and sustained fights."
+  },
+  "biography": {
+    "key": "08DADB074F7EED9DD6725A84AB7DA20D",
+    "default": "A changeling abandoned as a child, Sylvie was raised by the creatures of the Wyrdwoods and taught the language of flora and fauna.\r\n\r\nOutcast from civilization, she joins the Fellowship in search of kinship and a home she has never known."
+  },
+  "difficulty": 3,
+  "id": "CharacterID.Hero.Mosse"
+}

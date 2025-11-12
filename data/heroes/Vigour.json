@@ -1,0 +1,27 @@
+{
+  "class_color": {
+    "R": 221,
+    "G": 219,
+    "B": 197,
+    "A": 255,
+    "hex": "#DDDBC5"
+  },
+  "name": {
+    "key": "481F857443DE80D8404C2FA1ABD4B241",
+    "default": "Vigour"
+  },
+  "title": {
+    "key": "D68C88394EF7137B8B4C28B806817D60",
+    "default": "The Lightshaper"
+  },
+  "description": {
+    "key": "AB91BB1046A62BDC237B3DBA5245786B",
+    "default": "As a dwarf who divines the true meaning of runes, Vigour wields powerful healing spells to bolster and protect his allies and smite his enemies.\r\n\r\nVigour is a Healer that uses Builder/Spender Mechanics. He excels in the middle of his allies where he can sustain them with powerful AoE heals.\r\n\r\nAs a wielder of Radiant Runes, he must choose how and when to cast his most powerful spells.\r\n\r\nHis strong Direct Healing grant him an advantage in reacting to an ever-changing battlefield."
+  },
+  "biography": {
+    "key": "F8A9721A4E43A8BBDD4C5DB29C492114",
+    "default": "A dwarf of legend and the first Lightshaper to leave the mountain kingdoms.\r\n\r\nVigour has spent centuries traveling the world, mending wounds, banishing shadow, and gathering champions to his cause. He is the guiding light that unites the disparate heroes of the Fellowship."
+  },
+  "difficulty": 2,
+  "id": "CharacterID.Hero.Vigor"
+}

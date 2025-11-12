@@ -1,0 +1,27 @@
+{
+  "class_color": {
+    "R": 30,
+    "G": 163,
+    "B": 238,
+    "A": 255,
+    "hex": "#1EA3EE"
+  },
+  "name": {
+    "key": "3825535A4AE809A565D55684CD35A14B",
+    "default": "Rime"
+  },
+  "title": {
+    "key": "738D46D649E714DCBCA2439781F52FA9",
+    "default": "The Harbinger of Winter"
+  },
+  "description": {
+    "key": "4746B3AE4F74321F890DA28560AAE86C",
+    "default": "Channelling the forces of spirit and ice, Rime conjures powerful spells to decimate her foes.\r\n\r\nRime is a Spellcasting Damage Dealer with Builder/Spender Mechanics. She excels at focusing down the biggest threat from a distance.\r\n\r\nMany of Rime’s abilities fill an Anima Bar to deal spikes of damage and generate Winter Orbs.\r\n\r\nShe uses Winter Orbs to cast dangerous spells."
+  },
+  "biography": {
+    "key": "AEB262EE417EF0F418BE6B8ADB8892C0",
+    "default": "The last of her tribe, Rime lived in solitude until the rise of new evils forced her from her hermitage.\r\n\r\nThe Harbinger enacts the will of the patron spirit of winter. Rime's power is a cursed gift she uses to cleanse corruption and bring quiet peace to those already fated to die."
+  },
+  "difficulty": 2,
+  "id": "CharacterID.Hero.Rime"
+}

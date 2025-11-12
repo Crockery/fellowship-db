@@ -1,0 +1,27 @@
+{
+  "class_color": {
+    "R": 180,
+    "G": 105,
+    "B": 50,
+    "A": 255,
+    "hex": "#B46932"
+  },
+  "name": {
+    "key": "146A66FE48F8FA30BF7AABA6210D2A28",
+    "default": "Helena"
+  },
+  "title": {
+    "key": "E432BDB841C5C1F5AD62909DCE3C5980",
+    "default": "The Warmaster"
+  },
+  "description": {
+    "key": "31D5BA72485C5885C74084BCB3F7BADD",
+    "default": "Despite being weighed down by full plate armor, Helena is always ready to charge into the fray to protect her companions.\r\n\r\nHelena is a Melee Tank and excels in the front lines taking hits instead of her allies.\r\n\r\nHer Veteran of War mechanic allows Helena to reduce the cooldowns of her ability to allow for more frequent use of her powerful attacks and Toughness generators.\r\n\r\nToughness is Helena's main resource for mitigating incoming damage and surviving dangerous encounters. Her Toughness is shown as a blue bar to the right of the character."
+  },
+  "biography": {
+    "key": "010175254543D744B79AF08159556C0D",
+    "default": "Disillusioned after the Twelve Year War, Helena wandered the world fighting back evil where noble apathy or cruelty allowed it to fester.\r\n\r\nThe Warmaster joins the Fellowship to face threats she could not defeat alone. Helena is a stern presence, maintaining a seasoned warrior’s discipline and distance from her comrades lest she suffer the burden of loss again."
+  },
+  "difficulty": 2,
+  "id": "CharacterID.Hero.Warmaster"
+}

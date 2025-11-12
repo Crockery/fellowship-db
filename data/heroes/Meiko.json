@@ -1,0 +1,27 @@
+{
+  "class_color": {
+    "R": 40,
+    "G": 224,
+    "B": 92,
+    "A": 255,
+    "hex": "#28E05C"
+  },
+  "name": {
+    "key": "17C34D1C4A98CF5EE2D9C381EB3550B1",
+    "default": "Meiko"
+  },
+  "title": {
+    "key": "42C8A165413885DE37AA95AAA39EC0CD",
+    "default": "The Twinsoul"
+  },
+  "description": {
+    "key": "084113E84A7AC0EDB000B2A796FF80AF",
+    "default": "As a martial artist, Meiko utilizes a variety of fighting techniques to empower herself and defend her allies.\r\n\r\nMeiko is a Melee Tank that uses Ability Combo Mechanics. She excels in the front lines taking hits instead of her allies.\r\n\r\nShe uses Ability Combos to perform powerful Finishing Moves.\r\n\r\nBig cooldowns and self buffs allow her to mend her own wounds and survive dangerous attacks."
+  },
+  "biography": {
+    "key": "BD518B48423AB76A56298EA3B8062B9C",
+    "default": "After the fall of the Edosaka Barrier, Meiko was sent away by her mother to survive. She traveled the world learning to channel her turmoil into martial grace as a Twinsoul.\r\n\r\nShe joins the Fellowship to continue her training and seek heroes strong enough to challenge the Demon King that reigns over her homeland."
+  },
+  "difficulty": 4,
+  "id": "CharacterID.Hero.Meiko"
+}

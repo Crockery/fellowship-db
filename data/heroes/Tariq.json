@@ -1,0 +1,27 @@
+{
+  "class_color": {
+    "R": 194,
+    "G": 124,
+    "B": 213,
+    "A": 255,
+    "hex": "#C27CD5"
+  },
+  "name": {
+    "key": "87AE9D7D46E872F32A33FDB8D5A464BF",
+    "default": "Tariq"
+  },
+  "title": {
+    "key": "6595FCFC41B2AFCA2FDC578D9B0AA6E2",
+    "default": "The Thunderlord"
+  },
+  "description": {
+    "key": "47BAFD3D4120589C81BF1C8A2AA1DD6A",
+    "default": "Tariq channels storm and fury to deal immense damage to his enemies.\r\n\r\nTariq is a Melee Damage Dealer that uses Builder/Spender and Timing Mechanics. He excels in the front lines to flank his enemies while they face the Tank.\r\n\r\nTiming his abilities around his Swing Timer will maximize his damage and Fury generation.\r\n\r\nFury is required for Tariq to perform powerful attacks."
+  },
+  "biography": {
+    "key": "EE05B267473AD55F82CA52A2B63DF218",
+    "default": "Exiled from the Goremdal Mountains, Tariq honors his people by hunting monsters and preserving their traditions.\r\n\r\nStrong of hand and stronger of heart, he joins the Fellowship to uphold the legacy of his clan and find new family forged in honor."
+  },
+  "difficulty": 4,
+  "id": "CharacterID.Hero.Ink"
+}

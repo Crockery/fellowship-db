@@ -1,0 +1,27 @@
+{
+  "class_color": {
+    "R": 235,
+    "G": 99,
+    "B": 41,
+    "A": 255,
+    "hex": "#EB6329"
+  },
+  "name": {
+    "key": "F66EC284494CA8D94857669F935318CA",
+    "default": "Ardeos"
+  },
+  "title": {
+    "key": "F2E45B0C4FDAB4BFC319F29CA0F6CA24",
+    "default": "The Pyromancer"
+  },
+  "description": {
+    "key": "AC13D89A4EA21832C19FD6886566C5AE",
+    "default": "Ardeos is a cocky Spellcasting Damage Dealer who utilizes powerful Damage over Time effects. The fact that others have struggled to utilize such raw power doesn’t concern him, he’s found it to be a snap!\r\n\r\nArdeos utilizes a system called Embers and Burning Embers. When he uses his basic abilities he collects the remaining Embers of the spellcast. When enough Embers have been collected they are set ablaze as Burning Embers.\r\n\r\nThe Burning Embers can be spent to cast Detonate, causing your fiery Damage over Time effects to contribute to instantanous burst damage."
+  },
+  "biography": {
+    "key": "03EFABA04B2D997DD03ED895528018C2",
+    "default": "An exceptional pyromancer too powerful for the academies and too reckless to leave to his own devices.\r\n\r\nArdeos joins the Fellowship to prove his flame will forge him into a hero, not an omen of apocalypse."
+  },
+  "difficulty": 3,
+  "id": "CharacterID.Hero.Firemage"
+}

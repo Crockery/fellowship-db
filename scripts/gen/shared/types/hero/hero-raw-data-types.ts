@@ -24,7 +24,9 @@ export interface HeroMetaDataRaw extends FellowshipBlueprint {
 }
 
 export interface HeroDataRaw extends FellowshipBlueprint {
-  HeroID: {
-    TagName: string;
+  Properties: {
+    HeroID: {
+      TagName: string;
+    };
   };
 }

@@ -5,8 +5,13 @@ export interface FellowshipTransObj {
   LocalizedString: string;
 }
 
-export interface FellowshipBlueprint {
+export interface FellowshipBlueprint extends Record<string, any> {
   Type: string;
   Name: string;
   Class: string;
+}
+
+export interface Translateable {
+  key: string;
+  default: string;
 }
