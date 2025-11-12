@@ -8,6 +8,9 @@ import {
 import fs from "fs-extra";
 import { FellowshipBlueprint } from "../shared/types/shared";
 
+// TODO: Add Talents
+// name, id, cost, row, slot
+
 const getHeroMetaData = async (
   meta_data_path: string
 ): Promise<HeroMetaData | null> => {
