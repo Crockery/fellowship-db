@@ -1,4 +1,4 @@
-export interface HeroData {
+export interface HeroMetaData {
   class_color: {
     R: number;
     G: number;

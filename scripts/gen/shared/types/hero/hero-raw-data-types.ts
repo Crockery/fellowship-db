@@ -1,6 +1,6 @@
-import { FellowshipTransObj } from "../shared";
+import { FellowshipBlueprint, FellowshipTransObj } from "../shared";
 
-export interface HeroMetaDataJson {
+export interface HeroMetaDataRaw extends FellowshipBlueprint {
   Properties: {
     ClassColor: {
       B: number;
@@ -20,5 +20,11 @@ export interface HeroMetaDataJson {
     HeroName: FellowshipTransObj;
     HeroDescription: FellowshipTransObj;
     Biography: FellowshipTransObj;
+  };
+}
+
+export interface HeroDataRaw extends FellowshipBlueprint {
+  HeroID: {
+    TagName: string;
   };
 }

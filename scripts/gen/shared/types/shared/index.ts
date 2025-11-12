@@ -4,3 +4,9 @@ export interface FellowshipTransObj {
   SourceString: string;
   LocalizedString: string;
 }
+
+export interface FellowshipBlueprint {
+  Type: string;
+  Name: string;
+  Class: string;
+}

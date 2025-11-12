@@ -1,13 +1,12 @@
-import { HeroMetaDataJson } from "../shared/types";
-import { HeroData } from "../shared/types/hero/hero-generated-data-types";
-import { getOutputContents } from "../shared/utils";
+import { HeroMetaDataRaw } from "../shared/types";
+import { HeroMetaData } from "../shared/types/hero/hero-generated-data-types";
 import fs from "fs-extra";
 
-const generated_heroes: string[] = [];
-
-const genHeroData = async (metaDataPath: string) => {
+const genHeroMetaData = async (
+  meta_data_path: string
+): Promise<HeroMetaData | null> => {
   try {
-    const json: HeroMetaDataJson[] = await fs.readJson(metaDataPath);
+    const json: HeroMetaDataRaw[] = await fs.readJson(meta_data_path);
 
     if (!json || !json[0]) {
       throw new Error("No JSON");
@@ -20,7 +19,7 @@ const genHeroData = async (metaDataPath: string) => {
     const B = hero_info_raw.Properties.ClassColor.B;
     const A = hero_info_raw.Properties.ClassColor.A;
 
-    const hero_info_generated: HeroData = {
+    return {
       class_color: {
         R,
         G,
@@ -36,35 +35,85 @@ const genHeroData = async (metaDataPath: string) => {
       biography: hero_info_raw.Properties.Biography.Key,
       difficulty: hero_info_raw.Properties.OverallDifficulty,
     };
-
-    console.log(hero_info_generated);
   } catch (error) {
-    console.log(`Encountered error loading hero json at ${metaDataPath}`);
+    console.log(`Encountered error loading hero json at ${meta_data_path}`);
+    return null;
   }
 };
 
-export const genHeroes = async () => {
-  console.log("Generating hero data.");
+const getHeroData = async (data_path: string) => {
+  const json: HeroMetaDataRaw[] = await fs.readJson(data_path);
+};
 
-  const meta_data_paths: string[] = [];
-
-  const findMetadataPaths = (
-    contents: Awaited<ReturnType<typeof getOutputContents>>
-  ) => {
-    contents?.files.forEach((file) => {
-      if (file.name.endsWith("MetaData.json")) {
-        meta_data_paths.push(`${file.parentPath}/${file.name}`);
-      }
-    });
-    contents?.directories.forEach(findMetadataPaths);
-  };
-
-  findMetadataPaths(await getOutputContents("Content\\characters\\Heroes"));
-
-  await Promise.all(
-    meta_data_paths.map((meta_data_path) => genHeroData(meta_data_path))
+const getHeroDirectoryKeys = async () => {
+  const paths = await fs.readdir(
+    `${process.env.FMODEL_OUTPUT}\\Content\\characters\\Heroes`,
+    { withFileTypes: true }
   );
 
-  console.log(`Generated data for ${generated_heroes.length} heroes.`);
-  console.log(generated_heroes);
+  return paths
+    .filter((path) => path.isDirectory())
+    .map((dirent) => dirent.name);
+};
+
+const getHeroDataPaths = async (hero_keys: string[]) => {
+  const hero_data_paths: {
+    data_file: string;
+    metadata_file: string;
+    hero_key: string;
+  }[] = [];
+
+  const getDataPaths = async (hero_key: string) => {
+    const paths = await fs.readdir(
+      `${process.env.FMODEL_OUTPUT}\\Content\\characters\\Heroes\\${hero_key}`,
+      { withFileTypes: true }
+    );
+
+    const files = paths.filter((dirent) => dirent.isFile());
+
+    const data_file = files.find((dirent) =>
+      dirent.name.startsWith(`BP_Hero_${hero_key}.json`)
+    );
+    const metadata_file = files.find(
+      (dirent) =>
+        dirent.name.startsWith(`DA_${hero_key}MetaData.json`) ||
+        dirent.name.startsWith(`DA_${hero_key}_MetaData.json`)
+    );
+
+    if (data_file && metadata_file) {
+      hero_data_paths.push({
+        data_file: `${data_file.parentPath}\\${data_file.name}`,
+        metadata_file: `${metadata_file.parentPath}\\${metadata_file.name}`,
+        hero_key,
+      });
+    }
+  };
+
+  await Promise.all(hero_keys.map((key) => getDataPaths(key)));
+
+  return hero_data_paths;
+};
+
+export const genHeroes = async () => {
+  console.group();
+  console.log("Generating hero data.");
+
+  const hero_keys = await getHeroDirectoryKeys();
+
+  const hero_paths = await getHeroDataPaths(hero_keys);
+
+  const genHero = async (
+    hero: Awaited<ReturnType<typeof getHeroDataPaths>>[number]
+  ) => {
+    const meta_data = await genHeroMetaData(hero.metadata_file);
+  };
+
+  console.log(
+    `${hero_paths.length} valid heroes found: ${hero_paths.map((hero) => hero.hero_key).join(", ")}`
+  );
+
+  await Promise.all(hero_paths.map((hero_path) => genHero(hero_path)));
+
+  console.log("Done generating heroes.");
+  console.groupEnd();
 };
