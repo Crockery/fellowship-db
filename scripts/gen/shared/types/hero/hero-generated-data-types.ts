@@ -19,4 +19,17 @@ export interface HeroData {
   id: string;
 }
 
-export type Hero = HeroData & HeroMetaData;
+export interface HeroTalentData {
+  id: string;
+  name: Translateable;
+  unlocked_at: number;
+  row: number;
+  // TODO: Get column
+  cost: number;
+  description: Translateable;
+  image: string;
+}
+
+export interface Hero extends HeroData, HeroMetaData {
+  talents: HeroTalentData[];
+}

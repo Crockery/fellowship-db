@@ -23,5 +23,292 @@
     "default": "Exiled from the Goremdal Mountains, Tariq honors his people by hunting monsters and preserving their traditions.\r\n\r\nStrong of hand and stronger of heart, he joins the Fellowship to uphold the legacy of his clan and find new family forged in honor."
   },
   "difficulty": 4,
-  "id": "CharacterID.Hero.Ink"
+  "id": "CharacterID.Hero.Ink",
+  "talents": [
+    {
+      "id": "Talent.ID.Talent2",
+      "name": {
+        "default": "Left Hand Path",
+        "key": "0F5CE1784BE3FB4A1E0DBC970FB1A734"
+      },
+      "unlocked_at": 0,
+      "row": 1,
+      "cost": 2,
+      "description": {
+        "default": "When <rt.absorb>Face Breaker</> deals critical strike damage, <rt.warning>30%</> of the damage dealt is also dealt to enemies near your target, reduced beyond 5 targets.\r\n\r\n<rt.absorb>Face Breaker's</> critical strike chance is increased by <rt.warning>+50%</>.",
+        "key": "BF84B21D48AAB7DF2D3B3893771A1DCC"
+      },
+      "image": "/Game/ui/icons/hero_abilities/Ink/T_Ink_Facebreaker.0"
+    },
+    {
+      "id": "Talent.ID.Talent11",
+      "name": {
+        "default": "Concatenation",
+        "key": "A9DB45EE4A96339650CC8484AC3ECEA0"
+      },
+      "unlocked_at": 0,
+      "row": 1,
+      "cost": 2,
+      "description": {
+        "default": "Your <rt.bold>Attack Speed</> is increased by <rt.warning>50%</>.",
+        "key": "7BCD2F644D3BC2BE88CF319B4B7345EB"
+      },
+      "image": "/Game/ui/icons/Blink_icons/Classes/Warrior/Berserker/Berserker6.0"
+    },
+    {
+      "id": "Talent.ID.Talent3",
+      "name": {
+        "default": "Blood & Thunder",
+        "key": "7E54C35542F76B0CEA9AD897E467899F"
+      },
+      "unlocked_at": 0,
+      "row": 1,
+      "cost": 2,
+      "description": {
+        "default": "Your <rt.absorb>Heavy Strike</> has a chance to cast a free <rt.absorb>Chain Lightning</> at the target.\r\n\r\n(2.0 PPM)",
+        "key": "AAFC5F514731CF80ECB6319481C2D980"
+      },
+      "image": "/Game/ui/icons/SpellBookMegapack/Textures/Tex_SpellBookPage01/Tex_SpellBook01_91.0"
+    },
+    {
+      "id": "Talent.ID.Talent6",
+      "name": {
+        "default": "Bloodline",
+        "key": "BE75035D42FB83A521E6619C5DD8EDEF"
+      },
+      "unlocked_at": 0,
+      "row": 2,
+      "cost": 1,
+      "description": {
+        "default": "You generate <rt.mana>1 Fury</> every 1 second.\r\n\r\nYou no longer lose <rt.mana>Fury</> while out of combat.",
+        "key": "5BDC491341B506270ECBBBAD3A2C2114"
+      },
+      "image": "/Game/ui/icons/NhanceRPGSpells_02/Textures/T_Icon_BloodCombat_141.0"
+    },
+    {
+      "id": "Talent.ID.Talent14",
+      "name": {
+        "default": "High Road",
+        "key": "BCA429A346A256C54AA96DAE02030E78"
+      },
+      "unlocked_at": 0,
+      "row": 2,
+      "cost": 1,
+      "description": {
+        "default": "When your <rt.absorb>Leap Smash</> ability does not hit an enemy, its cooldown is reduced by <rt.bold>14</>  seconds and your movement speed is increased by <rt.bold>50%</> for 4 seconds.\r\n\r\nYour <rt.absorb>Leap Smash</> has <rt.warning>+20% increased critical strike chance</>.\r\n\r\nYou now only generate <rt.mana>Fury</> with <rt.absorb>Leap Smash</> when it deals damage to an enemy.",
+        "key": "597184C94454FD481FD8B4859E2A0D39"
+      },
+      "image": "/Game/ui/icons/Blink_icons/Classes/Warrior/Barbarian/Barbarian8.0"
+    },
+    {
+      "id": "Talent.ID.Talent7",
+      "name": {
+        "default": "Ride the Lightning",
+        "key": "CF9BD954430236BB653DC3A459851975"
+      },
+      "unlocked_at": 0,
+      "row": 2,
+      "cost": 1,
+      "description": {
+        "default": "Your <rt.absorb>Thunder Call</> generates <rt.mana>60</> Fury over its duration.",
+        "key": "915F6802419D2CCF4240EB8743DC13DE"
+      },
+      "image": "/Game/ui/icons/hero_abilities/Ink/T_Ink_Selfbuff.0"
+    },
+    {
+      "id": "Talent.ID.Talent10",
+      "name": {
+        "default": "Them Bones",
+        "key": "B60ABA8B4B1DA58798688883BD0ACE56"
+      },
+      "unlocked_at": 0,
+      "row": 3,
+      "cost": 2,
+      "description": {
+        "default": "Your <rt.absorb>Skull Crusher</> has a <rt.bold>30%</> chance to have <rt.warning>+100%</> increased critical strike chance.\r\n\r\n<rt.warning>GRIEVOUS CRITICAL STRIKE</>\r\nAny critical strike chance you have beyond 100% causes a <rt.warning>grievous critical strike</>. <rt.warning>Grievous critical strikes</> increase the base damage of the hit by an amount equal to the overflowing critical strike chance.",
+        "key": "039BC5A741FFCDF2BFE2C1A3EFDB61AB"
+      },
+      "image": "/Game/ui/icons/hero_abilities/Ink/T_Ink_Skullcrusher.0"
+    },
+    {
+      "id": "Talent.ID.Talent18",
+      "name": {
+        "default": "Kill 'Em All",
+        "key": "F8DD387F4DF2430AA0B03FBC58FEA5F2"
+      },
+      "unlocked_at": 0,
+      "row": 3,
+      "cost": 2,
+      "description": {
+        "default": "Your <rt.absorb>Hammer Storm</> now spins 3 times per use for the same <rt.mana>Fury</> cost, but each consecutive spin deals <rt.warning>35% more damage</>.",
+        "key": "0C1B8ECF4CF59415382ABEA44E2E2EDB"
+      },
+      "image": "/Game/ui/icons/hero_abilities/Ink/T_Ink_Hammerstorm.0"
+    },
+    {
+      "id": "Talent.ID.Talent17",
+      "name": {
+        "default": "Thunderstruck",
+        "key": "7B19284F4857B452C35A92A2E7D9E729"
+      },
+      "unlocked_at": 0,
+      "row": 3,
+      "cost": 2,
+      "description": {
+        "default": "Your <rt.absorb>Chain Lightning</> bounces <rt.warning>3</> additional times.",
+        "key": "280663A343A2615B1AFB0DA0B94F78BB"
+      },
+      "image": "/Game/ui/icons/Blink_icons/Classes/Elementalist/Electromancer/Electromancer1.0"
+    },
+    {
+      "id": "Talent.ID.Talent4",
+      "name": {
+        "default": "Pneuma",
+        "key": "042D1432460604EF9FB759A7F3A5E4FC"
+      },
+      "unlocked_at": 0,
+      "row": 4,
+      "cost": 1,
+      "description": {
+        "default": "While <rt.absorb>Thunder Call</> is active you take <rt.bold>10%</> reduced damage and you passively restore health equal to <rt.heal>5% of any damage you deal</> for the duration.",
+        "key": "1F659DF546B2CA1B71A7EBAF2A5093C7"
+      },
+      "image": "/Game/ui/icons/NhanceRPGIcons/Textures/T_Nhance_RPG_Energy_18.0"
+    },
+    {
+      "id": "Talent.ID.Talent8",
+      "name": {
+        "default": "Far Beyond Driven",
+        "key": "80E892D0449360AC688865913C722311"
+      },
+      "unlocked_at": 0,
+      "row": 4,
+      "cost": 1,
+      "description": {
+        "default": "Each time you use <rt.absorb>Heavy Strike</> you gain 1 stack of <rt.effect>Far Beyond Driven</> for 20 seconds, increasing your Spirit by <rt.warning>+2%</>.\r\n\r\n<rt.effect>Far Beyond Driven</> stacks up to 5 times.",
+        "key": "2257DF2A4F0871081B2BF180AD5CD127"
+      },
+      "image": "/Game/ui/icons/NhanceRPGIcons/Textures/T_Nhance_RPG_Energy_13.0"
+    },
+    {
+      "id": "Talent.ID.Talent15",
+      "name": {
+        "default": "Magic Ward",
+        "key": "C69CC9D5465CC8FBA6F38C8772F3A008"
+      },
+      "unlocked_at": 0,
+      "row": 4,
+      "cost": 1,
+      "description": {
+        "default": "You take 10% reduced Magic damage.",
+        "key": "737CB90C4201EB146F1754BC7B0172DA"
+      },
+      "image": "/Game/ui/icons/NhanceIconsBundle/Textures/T_Arcane_Scroll.0"
+    },
+    {
+      "id": "Talent.ID.Talent5",
+      "name": {
+        "default": "Mouth for War",
+        "key": "F6B55C9E4900C82A42F8258F7FC085A8"
+      },
+      "unlocked_at": 0,
+      "row": 5,
+      "cost": 3,
+      "description": {
+        "default": "When your <rt.absorb>Leap Smash</> ability deals damage, you are granted 1 charge of <rt.absorb>Focused Wrath</>.",
+        "key": "C6946FDC46205D7CEADF36BEB3404397"
+      },
+      "image": "/Game/ui/icons/hero_abilities/Ink/T_Ink_FocusedWrath.0"
+    },
+    {
+      "id": "Talent.ID.Talent9",
+      "name": {
+        "default": "Schism",
+        "key": "387DF58445A5443C0772B5AE23838EF7"
+      },
+      "unlocked_at": 0,
+      "row": 5,
+      "cost": 3,
+      "description": {
+        "default": "Your <rt.absorb>Skull Crusher</> has a chance to make your next <rt.absorb>Hammer Storm</> deal 300% increased damage.\r\n\r\nYour <rt.absorb>Hammer Storm</> has a chance to make your next <rt.absorb>Skull Crusher</> deal 300% increased damage.\r\n\r\n(1.2 PPM)",
+        "key": "EAB742B145274F2524AA97BDFB4309F0"
+      },
+      "image": "/Game/ui/icons/NhanceIconsBundle/Textures/T_Nhance_RPG_Icons_TwoFace.0"
+    },
+    {
+      "id": "Talent.ID.Talent1",
+      "name": {
+        "default": "Square Hammer",
+        "key": "8129188741F53DDAB95E8C8ED8DE5F89"
+      },
+      "unlocked_at": 0,
+      "row": 5,
+      "cost": 3,
+      "description": {
+        "default": "<rt.absorb>Wild Swing</>, <rt.absorb>Face Breaker</>, <rt.absorb>Leap Smash</> & <rt.absorb>Chain Lightning</> each grant you 1 stack of <rt.effect>Square Hammer</>, up to <rt.bold>5</> stacks.\r\n\r\n<rt.effect>SQUARE HAMMER</>\r\nYour next <rt.absorb>Heavy Strike</> consumes all stacks of <rt.effect>Square Hammer</> and deals <rt.warning>30%</> more damage per stack consumed.",
+        "key": "E039BA1C4D9B80B2D6B686B896A5425A"
+      },
+      "image": "/Game/ui/icons/hero_abilities/Ink/T_Ink_TimerAbility.0"
+    },
+    {
+      "id": "Talent.ID.Talent12",
+      "name": {
+        "default": "Spit It Out",
+        "key": "1F7DB44C4210EF22D9A5ECBBC61641A6"
+      },
+      "unlocked_at": 0,
+      "row": 6,
+      "cost": 1,
+      "description": {
+        "default": "Your Critical Strike Power is increased by 10%.",
+        "key": "B85C08D94DCD61133A17D39F7FC63AA2"
+      },
+      "image": "/Game/ui/icons/NhanceIconsBundle/Textures/T_Nhance_RPG_Icons_FieryHammer.0"
+    },
+    {
+      "id": "Talent.ID.Talent13",
+      "name": {
+        "default": "Spirited Fortitude",
+        "key": "4ADF4F24459D922719E280AD834B5C81"
+      },
+      "unlocked_at": 0,
+      "row": 6,
+      "cost": 1,
+      "description": {
+        "default": "You take 10% less damage from <bold>Area of Effect</> attacks.",
+        "key": "449BEA7646608FB6CB590B88DBB7684E"
+      },
+      "image": "/Game/ui/icons/Blink_icons/Classes/Warrior/Barbarian/Barbarian3.0"
+    },
+    {
+      "id": "Talent.ID.Talent16",
+      "name": {
+        "default": "Crack the Sky",
+        "key": "3D806F5640B6C3C98CF1F6B793DD94AE"
+      },
+      "unlocked_at": 0,
+      "row": 6,
+      "cost": 1,
+      "description": {
+        "default": "Your <bold>Lightning damage</> has <rt.warning>+20%</> increased critical strike chance.",
+        "key": "0D351A0C45AA82187006AEB872DBEE01"
+      },
+      "image": "/Game/ui/icons/Blink_icons/Classes/Elementalist/Electromancer/Electromancer18.0"
+    },
+    {
+      "id": "Talent.ID.Talent99",
+      "name": {
+        "default": "Spirited Advance (old)",
+        "key": "CD61FEAA4E582D88426930B3532B3A8F"
+      },
+      "unlocked_at": 0,
+      "row": 4,
+      "cost": 1,
+      "description": {
+        "default": "Your <bold>Movement Speed</> is increased by 20%",
+        "key": "A50D2128462338FB7791DB919DDA447A"
+      },
+      "image": "/Game/ui/icons/Blink_icons/Classes/Warrior/Barbarian/Barbarian8.0"
+    }
+  ]
 }

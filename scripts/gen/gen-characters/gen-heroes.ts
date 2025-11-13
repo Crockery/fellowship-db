@@ -4,9 +4,11 @@ import {
   HeroData,
   HeroDataRaw,
   Hero,
+  HeroTalentDataRaw,
+  HeroTalentData,
 } from "../shared/types";
 import fs from "fs-extra";
-import { FellowshipBlueprint } from "../shared/types/shared";
+import { FSBlueprint } from "../shared/types/shared";
 
 // TODO: Add Talents
 // name, id, cost, row, slot
@@ -61,7 +63,7 @@ const getHeroMetaData = async (
 };
 
 const getHeroData = async (data_path: string): Promise<HeroData | null> => {
-  const json: FellowshipBlueprint[] = await fs.readJson(data_path);
+  const json: FSBlueprint[] = await fs.readJson(data_path);
 
   const hero_data = json.find((block) => {
     return !!block["Properties"]?.HeroID;
@@ -76,9 +78,45 @@ const getHeroData = async (data_path: string): Promise<HeroData | null> => {
   return null;
 };
 
+const getHeroTalents = async (
+  talents_path: string
+): Promise<HeroTalentData[]> => {
+  const json: FSBlueprint[] = await fs.readJson(talents_path);
+
+  const talent_data = json.find((block) => {
+    return block.Type === "CRTalentData";
+  });
+
+  if (!talent_data) {
+    throw new Error(`Unable to find talent_data for ${talents_path}`);
+  }
+
+  return (talent_data as HeroTalentDataRaw).Properties.Talents.filter(
+    (talent) => !talent.DisabledInGame
+  ).map((talent) => {
+    return {
+      id: talent.TalentID.TagName,
+      name: {
+        default: talent.Name.SourceString,
+        key: talent.Name.Key,
+      },
+      unlocked_at: talent.UnlockLevel,
+      row: talent.TalentRow,
+      // TODO: Get column
+      cost: talent.TalentPointCost,
+      description: {
+        default: talent.DetailedDescription.SourceString,
+        key: talent.DetailedDescription.Key,
+      },
+      image: talent.UIIconTexture.ResourceObject.ObjectPath,
+    };
+  });
+};
+
 interface HeroDataPath {
   data_file: string;
   metadata_file: string;
+  talents_file: string;
   hero_key: string;
 }
 
@@ -123,12 +161,15 @@ export const genHeroes = async () => {
         dirent.name.startsWith(`DA_${hero_key}_MetaData.json`)
     );
 
+    const talents_file = `${process.env.FMODEL_OUTPUT}\\Content\\Abilities\\Talents\\${hero_key}\\DA_Talents_${hero_key}.json`;
+
     // Only add the hero if they have both a data, and metadata
     // path.
     if (data_file && metadata_file) {
       hero_paths.push({
         data_file: `${data_file.parentPath}\\${data_file.name}`,
         metadata_file: `${metadata_file.parentPath}\\${metadata_file.name}`,
+        talents_file: talents_file,
         hero_key,
       });
     }
@@ -146,9 +187,10 @@ export const genHeroes = async () => {
   const genHero = async (hero: HeroDataPath) => {
     const meta_data = await getHeroMetaData(hero.metadata_file);
     const data = await getHeroData(hero.data_file);
+    const talents = await getHeroTalents(hero.talents_file);
 
     if (!!meta_data && !!data) {
-      const data_full: Hero = { ...meta_data, ...data };
+      const data_full: Hero = { ...meta_data, ...data, talents };
 
       await fs.writeFile(
         `.\\data\\heroes\\${data_full.name.default}.json`,
